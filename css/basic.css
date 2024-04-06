@@ -1,0 +1,92 @@
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+h6 {
+    font-size: 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0px 0.5rem;
+}
+
+p {
+    padding: 0px 0.5rem;
+    max-width: 80ch;
+    margin: 0px 0px 2em;
+    letter-spacing: 0.02rem;
+    word-spacing: 0.15rem;
+}
+
+pre {
+    margin: 0px 0px 2em;
+}
+
+blockquote {
+    margin: 2ch 2em;
+}
+
+blockquote>p {
+    margin: 0;
+    padding: 0;
+}
+
+blockquote>p::before {
+    content: '\201C';
+}
+
+blockquote>p::after {
+    content: '\201D';
+}
+
+figcaption {
+    font-size: 14px;
+}
+
+small,
+sub,
+sup {
+    font-size: 12px;
+}
+
+.display-1 {
+    font-size: 72px;
+}
+
+.display-2 {
+    font-size: 60px;
+}
+
+.display-3 {
+    font-size: 48px;
+}
+
+.subtitle {
+    font-size: 24px;
+    margin: 0px 0px 1rem;
+}
+
+textarea {
+    resize: vertical;
+}
