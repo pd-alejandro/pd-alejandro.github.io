@@ -36,3 +36,27 @@ window.addEventListener('resize', function () {
         carousel_wrap.classList.remove('no-transition')
     }, 0)
 })
+
+// Add touch functionality
+let touchStartX = 0
+let touchEndX = 0
+
+carousel_wrap.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX
+})
+
+carousel_wrap.addEventListener('touchmove', (e) => {
+    touchEndX = e.touches[0].clientX
+})
+
+carousel_wrap.addEventListener('touchend', () => {
+    const touchDiff = touchStartX - touchEndX
+
+    if (touchDiff > 50) {
+        // Swipe left (next item)
+        carousel_slide('next')
+    } else if (touchDiff < -50) {
+        // Swipe right (previous item)
+        carousel_slide('prev')
+    }
+})
