@@ -169,27 +169,14 @@
                                     <img src="./assets/img/simplenote/simplenote-screenshot-3.png" alt="/">
                                 </div>
                             </div>
-                            <!-- CONTROLS -->
-                            <div class="carousel__controls">
-                                <button class="prev" onclick="carousel_slide('prev')">
-                                    <svg width="20" height="20">
-                                        <path class="path-prev" d="M 0 10 L 20 0 V 20 Z" />
-                                    </svg>
-                                </button>
-                                <button class="next" onclick="carousel_slide('next')">
-                                    <svg width="20" height="20">
-                                        <path class="path-next" d="M 20 10 L 0 0 V 20 Z" />
-                                    </svg>
-                                </button>
-                            </div>
                             <!-- NAV -->
                             <div class="carousel__nav">
                                 <ul>
                                     <!-- li*n_items carousel_slide(item_n) -->
-                                    <li class="carousel__tab current"><a href="#" onclick="carousel_slide(0)"></a></li>
-                                    <li class="carousel__tab"><a href="#" onclick="carousel_slide(1)"></a></li>
-                                    <li class="carousel__tab"><a href="#" onclick="carousel_slide(2)"></a></li>
-                                    <li class="carousel__tab"><a href="#" onclick="carousel_slide(3)"></a></li>
+                                    <li class="carousel__tab current"><div onclick="carousel_slide(0)"></div></li>
+                                    <li class="carousel__tab"><div onclick="carousel_slide(1)"></div></li>
+                                    <li class="carousel__tab"><div onclick="carousel_slide(2)"></div></li>
+                                    <li class="carousel__tab"><div onclick="carousel_slide(3)"></div></li>
                                 </ul>
                             </div>
                         </div>
