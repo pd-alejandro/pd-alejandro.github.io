@@ -155,28 +155,53 @@
                         </p>
                         <div id="carousel">
                             <!-- ITEMS -->
-                            <div class="carousel__wrap">
-                                <div class="carousel__item">
-                                    <img src="./assets/img/simplenote/simplenote.jpg" alt="/">
+                            <div class="carousel">
+                                <div class="carousel__wrap">
+                                    <div class="carousel__item">
+                                        <img src="./assets/img/simplenote/simplenote.jpg" alt="Simplenote: logo">
+                                    </div>
+                                    <div class="carousel__item">
+                                        <img src="./assets/img/simplenote/simplenote-screenshot-1.png"
+                                            alt="Simplenote: captura de pantalla 1">
+                                    </div>
+                                    <div class="carousel__item">
+                                        <img src="./assets/img/simplenote/simplenote-screenshot-2.png"
+                                            alt="Simplenote: captura de pantalla 2">
+                                    </div>
+                                    <div class="carousel__item">
+                                        <img src="./assets/img/simplenote/simplenote-screenshot-3.png"
+                                            alt="Simplenote: captura de pantalla 3">
+                                    </div>
                                 </div>
-                                <div class="carousel__item">
-                                    <img src="./assets/img/simplenote/simplenote-screenshot-1.png" alt="/">
-                                </div>
-                                <div class="carousel__item">
-                                    <img src="./assets/img/simplenote/simplenote-screenshot-2.png" alt="/">
-                                </div>
-                                <div class="carousel__item">
-                                    <img src="./assets/img/simplenote/simplenote-screenshot-3.png" alt="/">
-                                </div>
-                            </div>
+                            </div> <!-- CONTROLS -->
+                            <button class="carousel-controls prev" onclick="carousel_slide('prev')"
+                                aria-label="Anterior">
+                                <svg viewBox="0 0 20 20" aria-hidden="true">
+                                    <path class="path-prev" d="M 0 10 L 15 0 V 20 Z" />
+                                </svg>
+                            </button>
+                            <button class="carousel-controls next" onclick="carousel_slide('next')"
+                                aria-label="Siguiente">
+                                <svg viewBox="0 0 20 20" aria-hidden="true">
+                                    <path class="path-next" d="M 20 10 L 5 0 V 20 Z" />
+                                </svg>
+                            </button>
                             <!-- NAV -->
                             <div class="carousel__nav">
                                 <ul>
-                                    <!-- li*n_items carousel_slide(item_n) -->
-                                    <li class="carousel__tab current"><div onclick="carousel_slide(0)"></div></li>
-                                    <li class="carousel__tab"><div onclick="carousel_slide(1)"></div></li>
-                                    <li class="carousel__tab"><div onclick="carousel_slide(2)"></div></li>
-                                    <li class="carousel__tab"><div onclick="carousel_slide(3)"></div></li>
+                                    <!-- li*n_items -->
+                                    <li class="carousel__tab current">
+                                        <div></div>
+                                    </li>
+                                    <li class="carousel__tab">
+                                        <div></div>
+                                    </li>
+                                    <li class="carousel__tab">
+                                        <div></div>
+                                    </li>
+                                    <li class="carousel__tab">
+                                        <div></div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

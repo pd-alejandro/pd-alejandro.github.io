@@ -5,22 +5,22 @@
 }
 
 :root {
-    --primary-light: lch(95% 80% 255);
-    --primary: lch(85% 80% 255);
-    --primary-dark: lch(30% 80% 255);
+    --primary-light: oklch(95% 80% 255);
+    --primary: oklch(85% 80% 255);
+    --primary-dark: oklch(30% 80% 255);
 
-    --lighter: lch(98% 2% 255);
-    --light: lch(94% 2% 255);
-    --mid-light: lch(92% 2% 255);
+    --lighter: oklch(98% 2% 255);
+    --light: oklch(94% 2% 255);
+    --mid-light: oklch(92% 2% 255);
 
-    --grey-light: lch(80% 12% 255);
-    --grey-mid-light: lch(60% 12% 255);
-    --grey-mid-dark: lch(40% 12% 255);
-    --grey-dark: lch(20% 12% 255);
+    --grey-light: oklch(80% 12% 255);
+    --grey-mid-light: oklch(60% 12% 255);
+    --grey-mid-dark: oklch(40% 12% 255);
+    --grey-dark: oklch(20% 12% 255);
 
-    --mid-dark: lch(16% 4% 255);
-    --dark: lch(12% 4% 255);
-    --darker: lch(8% 4% 255);
+    --mid-dark: oklch(16% 4% 255);
+    --dark: oklch(12% 4% 255);
+    --darker: oklch(8% 4% 255);
 
     --text-color: light-dark(var(--grey-dark), var(--light));
     --pill-text-color: light-dark(var(--lighter), var(--light));
@@ -38,6 +38,11 @@
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+*:focus-visible {
+    outline: 4px solid light-dark(var(--primary-dark), var(--primary-light));
+    outline-offset: 4px;
 }
 
 ::selection {
@@ -268,11 +273,6 @@ ul {
         margin: 1rem 0;
     }
 
-    & #carousel {
-        margin: 1rem 0;
-        border-radius: 2rem;
-    }
-
     & a:has(.icon) {
         display: flex;
         color: var(--link-color);
@@ -316,7 +316,7 @@ ul {
 [data-title] {
     position: relative;
 
-    &:hover::after {
+    &:is(:hover, :focus-visible)::after {
         --translatex: -50%;
         content: attr(data-title);
         position: absolute;
