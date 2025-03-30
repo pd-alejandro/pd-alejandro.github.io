@@ -3,6 +3,17 @@ window.addEventListener('load', () => {
     document.querySelector('body').classList.remove('loading')
 })
 
+window.addEventListener('scroll', () => {
+    const logo = document.querySelector('header .logo')
+    const scrollThreshold = window.innerHeight * 0.5
+
+    if (window.scrollY >= scrollThreshold) {
+        logo.style.transform = 'translateY(0)'
+    } else {
+        logo.style.transform = 'translateY(-200%)'
+    }
+})
+
 // tooltip
 let interactiveItems = document.querySelectorAll('[class*="tooltip"]')
 let longClick = false
