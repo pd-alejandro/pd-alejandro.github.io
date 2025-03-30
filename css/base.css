@@ -91,6 +91,27 @@ body.dark {
     color-scheme: dark;
 }
 
+header,
+main,
+hr,
+footer {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+body.loading {
+    & header {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+
+    & main,
+    hr,
+    footer {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+}
+
 h1 {
     font-size: 2rem;
     margin: 1rem 0;

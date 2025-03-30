@@ -1,3 +1,9 @@
+// load
+window.addEventListener('load', () => {
+    document.querySelector('body').classList.remove('loading')
+})
+
+// tooltip
 let interactiveItems = document.querySelectorAll('[class*="tooltip"]')
 let longClick = false
 
