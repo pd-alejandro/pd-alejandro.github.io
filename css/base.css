@@ -99,6 +99,8 @@ footer {
 }
 
 body.loading {
+    overflow: hidden;
+
     & header {
         opacity: 0;
         transform: translateY(-1rem);
