@@ -138,6 +138,11 @@ small {
     font-size: 0.9rem;
 }
 
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
 section {
     display: flex;
     justify-content: center;
