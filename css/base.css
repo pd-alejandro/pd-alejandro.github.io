@@ -316,7 +316,7 @@ ul {
 [class*='tooltip'] {
     position: relative;
 
-    &:is(:hover, :focus-visible)::after {
+    &:is(:active, :focus-visible)::after {
         /* default: tooltip-top */
         --translatex: -50%;
         --translatey: -100%;
@@ -336,7 +336,7 @@ ul {
         border-radius: 0.5rem;
         pointer-events: none;
         opacity: 0;
-        animation: tooltip 2s ease;
+        animation: tooltip 2s 2s ease;
     }
 
     &[class*='left']::after {
