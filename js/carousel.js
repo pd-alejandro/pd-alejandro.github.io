@@ -37,7 +37,7 @@ window.addEventListener('resize', function () {
     }, 0)
 })
 
-// Add touch functionality
+// add touch functionality
 let touchStartX = 0
 let touchEndX = 0
 

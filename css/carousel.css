@@ -1,26 +1,27 @@
 #carousel {
-    --carousel-width: 100%;
-    --nav-color: rgba(0, 0, 0, 0.7);
-    width: var(--carousel-width);
-    aspect-ratio: 1.75;
-    /* overflow: hidden; */
+    --aspect-ratio: 1400/800;
+    --border-radius: 2rem;
+    --buttons-bg: light-dark(var(--light), var(--dark));
+    --buttons-color: light-dark(var(--grey-dark), var(--light));
+    --tabs-bg: light-dark(var(--dark), var(--light));
+    --tabs-color: light-dark(var(--primary-dark), var(--primary-light));
     position: relative;
+    width: 100%;
     margin: 1rem 0 2rem;
 }
 
 /* ITEMS */
 .carousel {
     position: relative;
-    width: 100%;
-    aspect-ratio: 1.75;
-    border-radius: 2rem;
+    aspect-ratio: var(--aspect-ratio);
+    border-radius: var(--border-radius);
     overflow: hidden;
 }
 
 .carousel__wrap {
     display: flex;
     width: 100%;
-    aspect-ratio: 1.75;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -28,52 +29,59 @@
 }
 
 .carousel__item {
-    flex: 0 0 var(--carousel-width)
-}
+    flex: 0 0 100%;
 
-.carousel__item>img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+    & img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 /* CONTROLS */
 .carousel-controls {
     position: absolute;
-    display: grid;
-    place-items: center;
     top: 50%;
-    padding: 0.5rem;
     width: 2rem;
     height: 2rem;
-    background: light-dark(var(--light), var(--dark));
+    padding: 0.25rem;
+    background-color: var(--buttons-bg);
     border: none;
     border-radius: 50%;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
     transform: translateY(-50%);
     opacity: 0.5;
+    transition: opacity 250ms ease;
+
+    &:hover {
+        opacity: 1 !important;
+    }
 
     &.prev {
-        left: 4px;
+        left: 8px;
     }
 
     &.next {
-        right: 4px;
+        right: 8px;
     }
 
     & svg {
         width: 100%;
         height: 100%;
-    }
 
-    & .path-prev,
-    .path-next {
-        fill: light-dark(var(--primary-dark), var(--primary-light));
+        & .path-prev,
+        .path-next {
+            fill: none;
+            stroke: var(--buttons-color);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 50;
+        }
     }
 }
 
-#carousel:is(:hover, :has(:focus-within)) .carousel-controls {
-    opacity: 1;
+#carousel:is(:hover, :has(:focus-visible)) .carousel-controls {
+    opacity: 0.75;
 }
 
 /* TABS */
@@ -81,41 +89,42 @@
     position: absolute;
     bottom: 0;
     left: 50%;
+    display: flex;
     width: 100px;
     height: 1rem;
     transform: translate(-50%, 150%);
-    border-radius: 5px;
-    display: flex;
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
+
+    & ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
 }
 
-.carousel__nav>ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
+.carousel__tab {
 
-.carousel__tab>div {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: light-dark(var(--dark), var(--light));
-    opacity: 0.4;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.25s ease, height 0.25s ease, width 0.25s ease;
-}
+    & span {
+        position: absolute;
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: var(--tabs-bg);
+        opacity: 0.4;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.25s ease, height 0.25s ease, width 0.25s ease;
+    }
 
-.carousel__tab.current>div {
-    background-color: light-dark(var(--primary-dark), var(--primary-light));
-    width: 8px;
-    height: 8px;
-    opacity: 1;
+    &.current>span {
+        background-color: var(--tabs-color);
+        width: 8px;
+        height: 8px;
+        opacity: 1;
+    }
 }
 
 @media (pointer: coarse) {
