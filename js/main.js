@@ -24,7 +24,7 @@ interactiveItems.forEach((item) => {
         clearInterval(timer)
     })
     item.addEventListener('click', (e) => {
-        if (elapsedTime >= 2000) {
+        if (elapsedTime >= 500) {
             e.preventDefault()
             e.stopPropagation()
             if ('vibrate' in navigator) {

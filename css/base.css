@@ -357,7 +357,7 @@ ul {
         border-radius: 0.5rem;
         pointer-events: none;
         opacity: 0;
-        animation: tooltip 2s 2s ease;
+        animation: tooltip 2s 500ms ease;
     }
 
     &[class*='left']::after {
