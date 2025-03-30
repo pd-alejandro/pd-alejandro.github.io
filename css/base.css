@@ -31,7 +31,7 @@
     --card-background: light-dark(var(--lighter), var(--dark));
     --item-background: light-dark(var(--light), var(--mid-dark));
     --pill-background: light-dark(var(--dark), var(--mid-dark));
-    --tooltip-background: light-dark(var(--light), var(--mid-dark));
+    --tooltip-background: light-dark(var(--lighter), var(--mid-dark));
 }
 
 *,
@@ -313,11 +313,13 @@ ul {
 }
 
 /* tooltip */
-[data-title] {
+[class*='tooltip'] {
     position: relative;
 
     &:is(:hover, :focus-visible)::after {
+        /* default: tooltip-top */
         --translatex: -50%;
+        --translatey: -100%;
         content: attr(data-title);
         position: absolute;
         top: -1.25rem;
@@ -325,46 +327,51 @@ ul {
         transform: translateY(-100%) translateX(var(--translatex)) scale(1);
         padding: 0.5rem 0.75rem;
         line-height: 1;
+        font-size: 1rem;
         font-weight: normal;
         text-align: center;
         color: var(--tooltip-color);
         background-color: var(--tooltip-background);
         border: thin solid var(--tooltip-color);
         border-radius: 0.5rem;
+        pointer-events: none;
         opacity: 0;
         animation: tooltip 2s ease;
-        pointer-events: none;
     }
 
-    &.tooltip-left::after {
+    &[class*='left']::after {
         --translatex: 0%;
         left: unset;
         right: 0;
-        transform: translateY(-100%) translateX(var(--translatex)) scale(1);
     }
 
-    &.tooltip-right::after {
-        --translatex: -0%;
+    &[class*='right']::after {
+        --translatex: 0%;
         left: 0%;
-        transform: translateY(-100%) translateX(var(--translatex)) scale(1);
+    }
+
+    &[class*='bottom']::after {
+        --translatey: 100%;
+        top: unset;
+        bottom: -1.25rem;
     }
 }
 
 @keyframes tooltip {
     from {
         opacity: 0;
-        transform: translateY(-100%) translateX(var(--translatex)) scale(0.75);
+        transform: translateY(var(--translatey)) translateX(var(--translatex)) scale(0.75);
     }
 
     10%,
     90% {
         opacity: 1;
-        transform: translateY(-100%) translateX(var(--translatex)) scale(1);
+        transform: translateY(var(--translatey)) translateX(var(--translatex)) scale(1);
     }
 
     to {
         opacity: 0;
-        transform: translateY(-100%) translateX(var(--translatex)) scale(0.75);
+        transform: translateY(var(--translatey)) translateX(var(--translatex)) scale(0.75);
     }
 }
 
