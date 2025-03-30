@@ -52,6 +52,7 @@ interactiveItems.forEach((item) => {
 // THEME
 let currentTheme = (localStorage?.getItem('theme')) ? localStorage.getItem('theme') : (window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'
 document.body.classList.add(currentTheme)
+document.querySelector('meta[name="theme-color"]').setAttribute('content', (currentTheme === 'light') ? '#0000c8' : '#00e9ff')
 
 const themeBtn = document.getElementById('toggle-theme_btn')
 
@@ -65,4 +66,10 @@ themeBtn.onclick = (e) => {
     document.body.classList.remove('dark', 'light')
     document.body.classList.add(currentTheme)
     localStorage.setItem('theme', currentTheme)
+
+    if (currentTheme === 'light') {
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0000c8')
+    } else {
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#00e9ff')
+    }
 }
