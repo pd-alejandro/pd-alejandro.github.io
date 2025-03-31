@@ -59,5 +59,8 @@ carousel_wrap.addEventListener('touchend', () => {
     } else if (touchDiff < -50) {
         // Swipe right (previous item)
         carousel_slide('prev')
+    } else {
+        // No significant swipe detected, reset position
+        carousel_wrap.style.left = `${-carousel_width * carousel_counter}px`
     }
 })
