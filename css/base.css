@@ -95,7 +95,7 @@ header,
 main,
 hr,
 footer {
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transition: opacity 0.25s 0.1s ease, transform 0.25s ease;
 }
 
 body.loading {

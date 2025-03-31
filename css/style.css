@@ -126,9 +126,12 @@ body.dark {
             stroke-width: 2;
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
-            animation: drawName 2.5s forwards;
         }
     }
+}
+
+body:not(.loading) h1 .name path {
+    animation: drawName 1s 250ms ease forwards;
 }
 
 @keyframes drawName {
