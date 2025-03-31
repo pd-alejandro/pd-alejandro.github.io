@@ -43,6 +43,7 @@ let touchEndX = 0
 
 carousel_wrap.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX
+    carousel_wrap.classList.add('no-transition')
 })
 
 carousel_wrap.addEventListener('touchmove', (e) => {
@@ -52,6 +53,7 @@ carousel_wrap.addEventListener('touchmove', (e) => {
 
 carousel_wrap.addEventListener('touchend', () => {
     const touchDiff = touchStartX - touchEndX
+    carousel_wrap.classList.remove('no-transition')
 
     if (touchDiff > 50) {
         // Swipe left (next item)

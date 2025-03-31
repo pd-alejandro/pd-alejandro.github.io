@@ -28,6 +28,10 @@
     transition: left 0.25s ease;
 }
 
+.no-transition {
+    transition: none !important;
+}
+
 .carousel__item {
     flex: 0 0 100%;
 
