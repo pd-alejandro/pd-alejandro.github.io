@@ -92,21 +92,21 @@ body.dark {
 }
 
 header,
-main,
+.container,
 hr,
 footer {
     transition: opacity 0.25s 0.1s ease, transform 0.25s ease;
 }
 
 body.loading {
-    overflow: hidden;
+    position: fixed;
 
     & header {
         opacity: 0;
         transform: translateY(-1rem);
     }
 
-    & main,
+    & .container,
     hr,
     footer {
         opacity: 0;
