@@ -5,22 +5,22 @@
 }
 
 :root {
-    --primary-light: oklch(95% 80% 255);
-    --primary: oklch(85% 80% 255);
-    --primary-dark: oklch(30% 80% 255);
+    --primary-light: oklch(85% 80% 260);
+    --primary: oklch(60% 80% 260);
+    --primary-dark: oklch(35% 80% 260);
 
-    --lighter: oklch(98% 2% 255);
-    --light: oklch(94% 2% 255);
-    --mid-light: oklch(92% 2% 255);
+    --lighter: oklch(98% 2% 260);
+    --light: oklch(94% 2% 260);
+    --mid-light: oklch(92% 2% 260);
 
-    --grey-light: oklch(80% 12% 255);
-    --grey-mid-light: oklch(60% 12% 255);
-    --grey-mid-dark: oklch(40% 12% 255);
-    --grey-dark: oklch(20% 12% 255);
+    --grey-light: oklch(80% 12% 260);
+    --grey-mid-light: oklch(60% 12% 260);
+    --grey-mid-dark: oklch(40% 12% 260);
+    --grey-dark: oklch(30% 12% 260);
 
-    --mid-dark: oklch(16% 4% 255);
-    --dark: oklch(12% 4% 255);
-    --darker: oklch(8% 4% 255);
+    --mid-dark: oklch(22% 4% 260);
+    --dark: oklch(15% 4% 260);
+    --darker: oklch(8% 4% 260);
 
     --text-color: light-dark(var(--grey-dark), var(--light));
     --pill-text-color: light-dark(var(--lighter), var(--light));

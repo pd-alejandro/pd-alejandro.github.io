@@ -47,6 +47,7 @@ carousel_wrap.addEventListener('touchstart', (e) => {
 
 carousel_wrap.addEventListener('touchmove', (e) => {
     touchEndX = e.touches[0].clientX
+    carousel_wrap.style.left = `${-carousel_width * carousel_counter + (touchEndX - touchStartX)}px`
 })
 
 carousel_wrap.addEventListener('touchend', () => {

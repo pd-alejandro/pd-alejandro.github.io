@@ -24,8 +24,11 @@ interactiveItems.forEach((item) => {
     item.addEventListener('mousedown', () => {
         elapsedTime = 0
         timer = setInterval(() => {
-            elapsedTime += 100
-        }, 100)
+            elapsedTime += 25
+            if (elapsedTime >= 2225) {
+                clearInterval(timer)
+            }
+        }, 25)
         longClick = false
     })
     item.addEventListener('mouseup', () => {
@@ -35,7 +38,7 @@ interactiveItems.forEach((item) => {
         clearInterval(timer)
     })
     item.addEventListener('click', (e) => {
-        if (elapsedTime >= 500) {
+        if (elapsedTime > 200) {
             e.preventDefault()
             e.stopPropagation()
             if ('vibrate' in navigator) {
