@@ -1,6 +1,6 @@
 header {
     --header-height: 3.5rem;
-    --header-border: 2px;
+    --header-border: 1px;
     position: fixed;
     display: flex;
     top: 0;
@@ -22,7 +22,7 @@ header {
         width: 100%;
         height: 100%;
         background-color: light-dark(var(--lighter), var(--dark));
-        opacity: 0.8;
+        opacity: .9;
     }
 
     & .logo {
@@ -58,7 +58,7 @@ header {
 }
 
 .main-path {
-    fill: light-dark(var(--light), var(--dark));
+    fill: light-dark(var(--lighter), var(--dark));
     transition: all 0.25s ease;
     transform-origin: center center;
 }
