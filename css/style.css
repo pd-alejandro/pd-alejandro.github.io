@@ -13,6 +13,7 @@ header {
     border-bottom: var(--header-border) solid light-dark(var(--primary-dark), var(--primary-light));
     z-index: 1000;
     backdrop-filter: blur(16px);
+    transition: border-color var(--transition-time-normal) ease;
 
     &::before {
         content: '';
@@ -23,16 +24,18 @@ header {
         height: 100%;
         background-color: light-dark(var(--lighter), var(--dark));
         opacity: .9;
+        transition: background-color var(--transition-time-normal) ease;
     }
 
     & .logo {
         height: 100%;
         padding: 0.25rem;
         transform: translateY(-200%);
-        transition: transform 0.25s ease;
+        transition: transform var(--transition-time-normal) ease;
 
         & path {
             fill: light-dark(var(--primary-dark), var(--primary-light));
+            transition: stroke var(--transition-time-normal) ease, fill var(--transition-time-normal) ease;
         }
     }
 }
@@ -47,9 +50,10 @@ header {
     border-radius: 50%;
     background-color: light-dark(var(--primary-dark), var(--primary-light));
     cursor: pointer;
+    transition: background-color var(--transition-time-normal) ease;
 
     & svg {
-        transition: transform 0.25s ease;
+        transition: transform var(--transition-time-normal) ease;
     }
 
     &:hover svg {
@@ -59,7 +63,7 @@ header {
 
 .main-path {
     fill: light-dark(var(--lighter), var(--dark));
-    transition: all 0.25s ease;
+    transition: all var(--transition-time-normal) ease;
     transform-origin: center center;
 }
 
@@ -69,7 +73,7 @@ header {
     stroke-linecap: round;
     transform: rotate(calc(var(--index) * 45deg));
     transform-origin: 50% 50%;
-    transition: all 0.25s ease;
+    transition: all var(--transition-time-normal) ease;
 }
 
 body.light {
@@ -99,6 +103,7 @@ body.dark {
     background-color: light-dark(var(--lighter), var(--dark));
     min-height: 100vh !important;
     padding-bottom: 0.5rem;
+    transition: background-color var(--transition-time-normal) ease;
 
     & .container {
         padding: 4rem 0;
@@ -116,9 +121,7 @@ body.dark {
         padding: 0.25rem 0;
         max-width: 20rem;
         line-height: 0rem;
-        transition: stroke 0.25s ease, fill 0.25s ease;
 
-        /* 1 */
         & path {
             fill: light-dark(var(--primary-dark), var(--primary-light));
             fill-opacity: 0;
@@ -126,6 +129,7 @@ body.dark {
             stroke-width: 2;
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
+            transition: stroke var(--transition-time-normal) ease, fill var(--transition-time-normal) ease;
         }
     }
 }
@@ -153,6 +157,7 @@ body:not(.loading) h1 .name path {
 footer {
     position: relative;
     background-color: light-dark(var(--lighter), var(--dark));
+    transition: background-color var(--transition-time-normal) ease;
 }
 
 .contact-menu {
@@ -176,7 +181,7 @@ footer {
                 width: 100%;
                 height: 100%;
                 aspect-ratio: 1/1;
-                transition: transform 0.25s ease;
+                transition: transform var(--transition-time-normal) ease, stroke var(--transition-time-normal) ease, fill var(--transition-time-normal) ease;
 
                 &:is(.linkedin, .codepen) {
                     fill: light-dark(var(--light), var(--dark));

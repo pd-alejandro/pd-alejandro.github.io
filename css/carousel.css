@@ -25,7 +25,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    transition: left 0.25s ease;
+    transition: left var(--transition-time-normal) ease;
 }
 
 .no-transition {
@@ -55,7 +55,7 @@
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
     transform: translateY(-50%);
     opacity: 0.5;
-    transition: opacity 250ms ease;
+    transition: opacity var(--transition-time-normal) ease, background-color var(--transition-time-normal) ease;
 
     &:is(:hover, :focus-visible) {
         opacity: 1 !important;
@@ -80,6 +80,7 @@
             stroke-linecap: round;
             stroke-linejoin: round;
             stroke-width: 50;
+            transition: stroke var(--transition-time-normal) ease;
         }
     }
 }
@@ -120,7 +121,7 @@
         background-color: var(--tabs-bg);
         opacity: 0.4;
         transform: translate(-50%, -50%);
-        transition: opacity 0.25s ease, height 0.25s ease, width 0.25s ease;
+        transition: opacity var(--transition-time-normal) ease, height var(--transition-time-normal) ease, width var(--transition-time-normal) ease, background-color var(--transition-time-normal) ease;
     }
 
     &.current>span {
