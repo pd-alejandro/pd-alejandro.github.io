@@ -39,30 +39,42 @@ window.addEventListener('resize', function () {
 
 // add touch functionality
 let touchStartX = 0
+let touchStartY = 0
 let touchEndX = 0
+let touchEndY = 0
+const swipeThreshold = 24
 
 carousel_wrap.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX
+    touchStartY = e.touches[0].clientY
     carousel_wrap.classList.add('no-transition')
 })
 
 carousel_wrap.addEventListener('touchmove', (e) => {
     touchEndX = e.touches[0].clientX
-    carousel_wrap.style.left = `${-carousel_width * carousel_counter + (touchEndX - touchStartX)}px`
+    touchEndY = e.touches[0].clientY
+
+    const deltaX = touchEndX - touchStartX
+    const deltaY = touchEndY - touchStartY
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        carousel_wrap.style.left = `${-carousel_width * carousel_counter + deltaX}px`
+    }
 })
 
 carousel_wrap.addEventListener('touchend', () => {
-    const touchDiff = touchStartX - touchEndX
+    const deltaX = touchEndX - touchStartX
+    const deltaY = touchEndY - touchStartY
+
     carousel_wrap.classList.remove('no-transition')
 
-    if (touchDiff > 50) {
-        // Swipe left (next item)
-        carousel_slide('next')
-    } else if (touchDiff < -50) {
-        // Swipe right (previous item)
-        carousel_slide('prev')
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+        if (deltaX < 0) {
+            carousel_slide('next')
+        } else {
+            carousel_slide('prev')
+        }
     } else {
-        // No significant swipe detected, reset position
         carousel_wrap.style.left = `${-carousel_width * carousel_counter}px`
     }
 })
