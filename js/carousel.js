@@ -58,7 +58,10 @@ carousel_wrap.addEventListener('touchmove', (e) => {
     const deltaY = touchEndY - touchStartY
 
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        e.preventDefault();
         carousel_wrap.style.left = `${-carousel_width * carousel_counter + deltaX}px`
+    } else {
+        return;
     }
 })
 
