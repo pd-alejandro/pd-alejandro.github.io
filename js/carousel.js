@@ -43,10 +43,14 @@ let touchStartY = 0
 let touchEndX = 0
 let touchEndY = 0
 const swipeThreshold = 24
+let isMoving = false
+let moveDirection = null
 
 carousel_wrap.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX
     touchStartY = e.touches[0].clientY
+    isMoving = false
+    moveDirection = null
     carousel_wrap.classList.add('no-transition')
 })
 
@@ -57,11 +61,20 @@ carousel_wrap.addEventListener('touchmove', (e) => {
     const deltaX = touchEndX - touchStartX
     const deltaY = touchEndY - touchStartY
 
-    if (Math.abs(deltaX) > Math.abs(deltaY)) {
-        e.preventDefault();
+    if (!isMoving) {
+        isMoving = true
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            moveDirection = "x"
+        } else {
+            moveDirection = "y"
+        }
+    }
+
+    if (moveDirection === "x") {
+        e.preventDefault()
         carousel_wrap.style.left = `${-carousel_width * carousel_counter + deltaX}px`
     } else {
-        return;
+        return
     }
 })
 
