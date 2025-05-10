@@ -80,11 +80,10 @@ carousel_wrap.addEventListener('touchmove', (e) => {
 
 carousel_wrap.addEventListener('touchend', () => {
     const deltaX = touchEndX - touchStartX
-    const deltaY = touchEndY - touchStartY
 
     carousel_wrap.classList.remove('no-transition')
 
-    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+    if (moveDirection === "x" && Math.abs(deltaX) > swipeThreshold) {
         if (deltaX < 0) {
             carousel_slide('next')
         } else {
