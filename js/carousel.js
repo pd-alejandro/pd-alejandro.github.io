@@ -83,13 +83,15 @@ carousel_wrap.addEventListener('touchend', () => {
 
     carousel_wrap.classList.remove('no-transition')
 
-    if (moveDirection === "x" && Math.abs(deltaX) > swipeThreshold) {
-        if (deltaX < 0) {
-            carousel_slide('next')
+    if (moveDirection === "x") {
+        if (Math.abs(deltaX) > swipeThreshold) {
+            if (deltaX < 0) {
+                carousel_slide('next')
+            } else {
+                carousel_slide('prev')
+            }
         } else {
-            carousel_slide('prev')
+            carousel_wrap.style.left = `${-carousel_width * carousel_counter}px`
         }
-    } else {
-        carousel_wrap.style.left = `${-carousel_width * carousel_counter}px`
     }
 })
